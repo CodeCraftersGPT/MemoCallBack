@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ExpensiveCalculationComponent from "./Components/ExpensiveCalculationComponent";
+
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [number, setNumber] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>useMemo Example</h1>
+      <button onClick={() => setCount(count + 1)}>Increment Count: {count}</button>
+      <button onClick={() => setNumber(number + 1)}>Increment Number: {number}</button>
+      <ExpensiveCalculationComponent num={number} />
     </div>
   );
 }
